@@ -16,7 +16,7 @@ namespace MenuProcessor
             public const int Dessert = 4;
         }
 
-        private static void renderOutput(StringBuilder sb, SortedDictionary<int, string> output)
+        private static void addOutputToBuilder(SortedDictionary<int, string> output, StringBuilder sb)
         {
             bool addComma = false;
             foreach (var key in output.Keys)
@@ -58,7 +58,6 @@ namespace MenuProcessor
                         break;
                     }
 
-                    // let rule do the work to put the right value into check if entry is single issue and has been specified multiple times
                     var mealEntry = rules[dish];
                     if (!mealEntry.addItemToOutputAndReturnContinueFlag(dish, output))
                     {
@@ -67,7 +66,7 @@ namespace MenuProcessor
 
                 }
             }
-            renderOutput(sb, output);
+            addOutputToBuilder(output, sb);
         }
     }
 }

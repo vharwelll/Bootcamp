@@ -21,7 +21,7 @@ namespace MenuProcessorConsole
             }
             catch (Exception e) 
             {
-                Console.WriteLine("Exception occured processing menu order '{0}'!");
+                Console.WriteLine("Exception occured processing menu order '{0}', message is: {1}", input, e.Message);
                 Console.WriteLine(e.StackTrace);
                 // just being paranoid, exception should preclude the processor returning anything...
                 output = null;
